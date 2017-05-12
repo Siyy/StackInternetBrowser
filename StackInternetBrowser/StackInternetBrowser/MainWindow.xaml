@@ -12,8 +12,15 @@
 			<RowDefinition/>
 			<RowDefinition Height="Auto"/>
 		</Grid.RowDefinitions>
-		<Ribbon Grid.Row="0" IsMinimized="True"/>
-		<WebBrowser Grid.Row="1"/>
+		<Ribbon Grid.Row="0" IsMinimized="True">
+			<Ribbon.QuickAccessToolBar>
+				<RibbonQuickAccessToolBar>
+					<RibbonTextBox/>
+					<RibbonComboBox IsEditable="True"/>
+				</RibbonQuickAccessToolBar>
+			</Ribbon.QuickAccessToolBar>
+		</Ribbon>
+		<WebBrowser Grid.Row="1" Source="http://guancha.cn" LoadCompleted="WebBrowser_LoadCompleted" Navigated="WebBrowser_Navigated" Navigating="WebBrowser_Navigating"/>
 		<StatusBar Grid.Row="9" Padding="0,0,20,0">
 			<StatusBarItem>状态栏</StatusBarItem>
 		</StatusBar>
