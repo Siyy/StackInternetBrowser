@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{D197DC3D-488E-4397-9251-10FDD9205A79}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>StackInternetBrowser</RootNamespace>
+    <RootNamespace>Jiuyong</RootNamespace>
     <AssemblyName>StackInternetBrowser</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
