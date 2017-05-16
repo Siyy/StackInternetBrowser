@@ -94,5 +94,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\JiuyongCore.csproj">
+      <Project>{9857248c-9e1a-4ced-951d-70b8f468971e}</Project>
+      <Name>JiuyongCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ToolBoxCore\ToolBoxCore.csproj">
+      <Project>{1e75cedd-493f-4bec-bc57-f86165a18478}</Project>
+      <Name>ToolBoxCore</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
