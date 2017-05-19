@@ -6,27 +6,37 @@
 	xmlns:local="clr-namespace:Jiuyong"
 	xmlns:caf="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
 	xmlns:CefSharp="clr-namespace:CefSharp;assembly=CefSharp.Core"
+	xmlns:ViewModels="clr-namespace:Jiuyong.ViewModels"
+	xmlns:a="clr-namespace:Jiuyong;assembly=a"
 	x:Class="Jiuyong.MainWindow"
 	mc:Ignorable="d"
 	Title="MainWindow"
 	ResizeMode="CanResizeWithGrip"
 	WindowState="Maximized"
 	>
+	<RibbonWindow.DataContext>
+		<ViewModels:MainWindowViewModel/>
+	</RibbonWindow.DataContext>
 	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="77*"/>
+			<ColumnDefinition Width="18*"/>
+		</Grid.ColumnDefinitions>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto"/>
 			<RowDefinition/>
 			<RowDefinition Height="Auto"/>
 		</Grid.RowDefinitions>
-		<Ribbon Grid.Row="0" IsMinimized="True">
+		<Ribbon Grid.Row="0" IsMinimized="True" Grid.ColumnSpan="2">
 			<Ribbon.QuickAccessToolBar>
 				<RibbonQuickAccessToolBar>
 					<RibbonTextBox/>
 					<RibbonComboBox IsEditable="True"/>
+					<RibbonButton x:Name="TestRibbonButton" Click="TestRibbonButton_Click"/>
 				</RibbonQuickAccessToolBar>
 			</Ribbon.QuickAccessToolBar>
 		</Ribbon>
-		<caf:ChromiumWebBrowser Grid.Row="1" Address="http://guancha.cn" >
+		<caf:ChromiumWebBrowser x:Name="MainBrowser" Grid.Row="1" Address="http://guancha.cn" >
 			<caf:ChromiumWebBrowser.CacheMode>
 				<BitmapCache/>
 			</caf:ChromiumWebBrowser.CacheMode>
@@ -34,5 +44,14 @@
 		<StatusBar Grid.Row="9" Padding="0,0,20,0">
 			<StatusBarItem Content="状态栏"/>
 		</StatusBar>
+		<ListBox Grid.Column="1" Grid.Row="1" ItemsSource="{Binding OpeningLinkes}">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Grid>
+						<a:InformationItemContainer Content="{Binding Text}" HorizontalAlignment="Left" Margin="0" ToolTip="{Binding Href}" VerticalAlignment="Top"/>
+					</Grid>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
 	</Grid>
 </RibbonWindow>
