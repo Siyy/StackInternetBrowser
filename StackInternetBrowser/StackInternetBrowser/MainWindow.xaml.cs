@@ -25,21 +25,5 @@ namespace Jiuyong
 		{
 			InitializeComponent();
 		}
-
-		private void WebBrowser_LoadCompleted(object sender, NavigationEventArgs e)
-		{
-
-		}
-
-		private void WebBrowser_Navigated(object sender, NavigationEventArgs e)
-		{
-
-		}
-
-		private void WebBrowser_Navigating(object sender, NavigatingCancelEventArgs e)
-		{
-
-		}
-
 	}
 }

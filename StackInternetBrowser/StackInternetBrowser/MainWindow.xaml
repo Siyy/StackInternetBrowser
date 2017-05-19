@@ -1,11 +1,17 @@
-﻿<RibbonWindow x:Class="Jiuyong.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Jiuyong"
-        mc:Ignorable="d"
-        Title="MainWindow" ResizeMode="CanResizeWithGrip" WindowState="Maximized">
+﻿<RibbonWindow
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:local="clr-namespace:Jiuyong"
+	xmlns:caf="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
+	xmlns:CefSharp="clr-namespace:CefSharp;assembly=CefSharp.Core"
+	x:Class="Jiuyong.MainWindow"
+	mc:Ignorable="d"
+	Title="MainWindow"
+	ResizeMode="CanResizeWithGrip"
+	WindowState="Maximized"
+	>
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto"/>
@@ -20,9 +26,9 @@
 				</RibbonQuickAccessToolBar>
 			</Ribbon.QuickAccessToolBar>
 		</Ribbon>
-		<WebBrowser Grid.Row="1" Source="http://guancha.cn" LoadCompleted="WebBrowser_LoadCompleted" Navigated="WebBrowser_Navigated" Navigating="WebBrowser_Navigating"/>
+		<caf:ChromiumWebBrowser Grid.Row="1" Address="http://guancha.cn" />
 		<StatusBar Grid.Row="9" Padding="0,0,20,0">
-			<StatusBarItem>状态栏</StatusBarItem>
+			<StatusBarItem Content="状态栏"/>
 		</StatusBar>
 	</Grid>
 </RibbonWindow>
