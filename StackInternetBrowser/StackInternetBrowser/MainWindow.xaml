@@ -26,7 +26,11 @@
 				</RibbonQuickAccessToolBar>
 			</Ribbon.QuickAccessToolBar>
 		</Ribbon>
-		<caf:ChromiumWebBrowser Grid.Row="1" Address="http://guancha.cn" />
+		<caf:ChromiumWebBrowser Grid.Row="1" Address="http://guancha.cn" >
+			<caf:ChromiumWebBrowser.CacheMode>
+				<BitmapCache/>
+			</caf:ChromiumWebBrowser.CacheMode>
+		</caf:ChromiumWebBrowser>
 		<StatusBar Grid.Row="9" Padding="0,0,20,0">
 			<StatusBarItem Content="状态栏"/>
 		</StatusBar>
