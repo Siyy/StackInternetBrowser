@@ -23,6 +23,12 @@ namespace Jiuyong
 	{
 		public MainWindow()
 		{
+			var setting = new CefSharp.CefSettings()
+			{
+				CachePath = System.IO.Directory.GetCurrentDirectory() + @"\Cache",
+			};
+			CefSharp.Cef.Initialize(setting);
+
 			InitializeComponent();
 			Loaded += MainWindow_Loaded;
 		}
