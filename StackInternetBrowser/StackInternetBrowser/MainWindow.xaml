@@ -13,6 +13,7 @@
 	Title="MainWindow"
 	ResizeMode="CanResizeWithGrip"
 	WindowState="Maximized"
+	Language="zh-cn"
 	>
 	<RibbonWindow.DataContext>
 		<ViewModels:MainWindowViewModel/>
@@ -36,20 +37,14 @@
 				</RibbonQuickAccessToolBar>
 			</Ribbon.QuickAccessToolBar>
 		</Ribbon>
-		<caf:ChromiumWebBrowser x:Name="MainBrowser" Grid.Row="1" Address="http://guancha.cn" >
-			<caf:ChromiumWebBrowser.CacheMode>
-				<BitmapCache/>
-			</caf:ChromiumWebBrowser.CacheMode>
-		</caf:ChromiumWebBrowser>
+		<caf:ChromiumWebBrowser x:Name="MainBrowser" Grid.Row="1" Address="http://guancha.cn" />
 		<StatusBar Grid.Row="9" Padding="0,0,20,0">
 			<StatusBarItem Content="状态栏"/>
 		</StatusBar>
-		<ListBox Grid.Column="1" Grid.Row="1" ItemsSource="{Binding OpeningLinkes}">
+		<ListBox Grid.Column="1" Grid.Row="1" ItemsSource="{Binding OpeningLinkes}" SelectedItem="{Binding CurrentALink}">
 			<ListBox.ItemTemplate>
 				<DataTemplate>
-					<Grid>
-						<a:InformationItemContainer Content="{Binding Text}" HorizontalAlignment="Left" Margin="0" ToolTip="{Binding Href}" VerticalAlignment="Top"/>
-					</Grid>
+					<TextBlock><Hyperlink NavigateUri="{Binding Href}" ForceCursor="True" TextDecorations="{x:Null}" CommandParameter="{Binding Href}" Command="NavigationCommands.GoToPage" CommandTarget="{Binding ElementName=MainBrowser, Mode=OneWay}"><Run Text="{Binding Text}" ToolTip="{Binding Href}"/></Hyperlink></TextBlock>
 				</DataTemplate>
 			</ListBox.ItemTemplate>
 		</ListBox>

@@ -44,6 +44,41 @@ namespace Jiuyong.ViewModels
 		}
 
 		#endregion
+
+		#region CurrentUrl - 当前显示页面的地址
+
+		/// <summary>
+		/// 当前显示页面的地址。
+		/// </summary>
+		private ALink _CurrentALink
+			//= new string()
+			;
+
+		/// <summary>
+		/// 当前显示页面的地址。
+		/// </summary>
+		//[System.ComponentModel.DataAnnotations.Display(Name="当前显示页面的地址",Description="当前显示页面的地址。",AutoGenerateField = true)]
+		//[System.ComponentModel.DataAnnotations.Required(ErrorMessage="“当前显示页面的地址”不能为空！")]
+		[System.ComponentModel.Category("模型")]  //可用于属性面板中的分组。
+		[System.ComponentModel.Description("当前显示页面的地址。")]
+		////在编辑面板（例如 Blend ）中如何显示。
+		[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)]
+		////在属性面板（例如 VisualStudio）中隐藏。
+		//[System.ComponentModel.Browsable(false)]
+		//[Newtonsoft.Json.JsonIgnore]
+		public ALink CurrentALink
+		{
+			get { return _CurrentALink; }
+			set
+			{
+				OnPropertyChanging(nameof(CurrentALink));
+				ValidateProperty(nameof(CurrentALink), value);
+				_CurrentALink = value;
+				OnPropertyChanged(nameof(CurrentALink));
+			}
+		}
+
+		#endregion
 	}
 
 	public class ALink

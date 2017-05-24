@@ -38,7 +38,6 @@ namespace Jiuyong
 
 		private void MainWindow_Loaded(object sender, RoutedEventArgs e)
 		{
-
 			WebBrowser_Init();
 			BindingCommands();
 			SubscriptEvents();
@@ -82,13 +81,13 @@ namespace Jiuyong
 
 		private void BindingCommands()
 		{
-			//throw new NotImplementedException();
+			this.BindCommand(NavigationCommands.GoToPage, (s, e) => MainBrowser.Load(e.Parameter as string));
 		}
 
 		private void WebBrowser_Init()
 		{
 			MainBrowser.LifeSpanHandler = new LifeSpanHandler();
-			MainBrowser.BrowserSettings.ApplicationCache = CefSharp.CefState.Enabled;
+			//MainBrowser.Address = "http://guancha.cn";
 		}
 
 		private void TestRibbonButton_Click(object sender, RoutedEventArgs e)
